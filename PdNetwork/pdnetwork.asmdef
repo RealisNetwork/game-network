@@ -1,0 +1,16 @@
+{
+    "name": "pdnetwork",
+    "references": [
+        "GUID:94782679bd4b1f940b6004ab68ccb9c3",
+        "GUID:020796727ee124b4d85c264cfebfab35"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
