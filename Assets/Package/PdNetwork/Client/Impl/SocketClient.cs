@@ -136,8 +136,6 @@ namespace PdNetwork.Client.Impl
 
         private void OnSocketClose(string reason = null)
         {
-            ExecuteDisconnection(reason);
-            return; // TODO fix reconnect
             if ((!_attemptingReconnection && ReconnectionSeconds == 0) | reason == "manual")
             {
                 _firstReconnectAttempt = DateTime.MinValue;
@@ -169,6 +167,8 @@ namespace PdNetwork.Client.Impl
 
         private void Reconnect()
         {
+            ExecuteDisconnection("Disconnected");
+            return; // TODO fix reconnect
             if (!_attemptingReconnection)
                 return;
             
