@@ -161,6 +161,7 @@ namespace PdNetwork.Client.Impl
             }
             else
             {
+                ExecuteDisconnection($"Error:{se}, message:{message}");
                 OnIoError?.Invoke(message);
             }
         }
