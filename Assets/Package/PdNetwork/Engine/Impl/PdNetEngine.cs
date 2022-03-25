@@ -223,7 +223,7 @@ namespace PdNetwork.Engine.Impl
         {
             // _sessionToken = null;
             _pingMonitor?.Destroy();
-            _pingMonitor = null;
+            _pingMonitor = new DefaultPingMonitor(this, 4, 10);
         }
     }
 }
