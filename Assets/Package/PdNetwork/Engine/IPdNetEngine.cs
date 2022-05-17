@@ -7,7 +7,7 @@ namespace PdNetwork.Engine
 {
     public interface IPdNetEngine
     {
-        void Configure(string authToken, string apiVersion, ISocketClient socketClient, int reconnectionSeconds);
+        void Configure(byte appId, string authToken, string apiVersion, ISocketClient socketClient, int reconnectionSeconds);
         void ConfigureUdp(string outHost, int outPort, int inPort);
 
         IPingMonitor PingMonitor { set; }

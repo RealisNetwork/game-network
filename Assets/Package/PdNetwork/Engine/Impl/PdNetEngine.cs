@@ -13,6 +13,7 @@ namespace PdNetwork.Engine.Impl
 {
     public class PdNetEngine : IPdNetEngine
     {
+        private byte _appId;
         private string _authToken;
         private string _apiVersion;
         private ISocketClient _socketClient;
@@ -37,8 +38,9 @@ namespace PdNetwork.Engine.Impl
 
         private PdUdpClient _udpClient;
         
-        public void Configure(string authToken, string apiVersion, ISocketClient socketClient, int reconnectionSeconds)
-        {
+        public void Configure(byte appId, string authToken, string apiVersion, ISocketClient socketClient, int reconnectionSeconds)
+		{
+			_appId = appId;
             _authToken = authToken;
             _apiVersion = apiVersion;
             _socketClient = socketClient;
@@ -162,7 +164,7 @@ namespace PdNetwork.Engine.Impl
 
         private void SendHandshakeRequest(bool isReconnection)
         {
-            Send(new HandshakeReq(_authToken, _apiVersion, isReconnection ? _sessionToken : null));
+            Send(new HandshakeReq(_appId, _authToken, _apiVersion, isReconnection ? _sessionToken : null));
         }
 
         private void OnSocketResponse(IResponse response)
